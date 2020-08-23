@@ -1,0 +1,14 @@
+local: &local
+  project: nyc-taxi-demand # project name
+  jwt: nyc-taxi-demand-06efad7b0bcf.json # Web token key
+  dataset: taxi_demand_local # the place which processed dataframe(model predicts demand) is stored in
+  save_folder: . # the place which information of model is stored in
+
+development:
+  <<: *local
+
+production:
+  project: nyc-taxi-demand
+  jwt: your_key.json
+  dataset: taxi_demand_prod
+  save_folder: /home/airflow/gcs/data/nyc-taxi-demand-prediction
